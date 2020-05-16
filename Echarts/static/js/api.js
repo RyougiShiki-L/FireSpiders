@@ -1,7 +1,5 @@
-// log
 const log = console.log.bind(console)
 
-// api API
 const api = {}
 
 api.ajax = function (url, method, form, response) {
@@ -17,7 +15,6 @@ api.ajax = function (url, method, form, response) {
         let data = JSON.stringify(form);
         request.data = data
     }
-    // jquery ajax 函数
     $.ajax(request)
 }
 
@@ -31,7 +28,6 @@ api.get = function (url, response) {
             response(r);
         }
     }
-    // jquery ajax 函数
     $.ajax(request)
 }
 
