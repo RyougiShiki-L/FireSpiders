@@ -218,17 +218,12 @@ const renderChart = function(d) {
 
 const fetchMovies = function() {
     let protocol = location.protocol
-    // 如果是通过 node 运行的, prototol 是 http
-    // 则调用 api 来获取电影数据
-    // 否则直接调用 movieJSON 函数获取电影数据
     if (protocol === 'http:') {
-        // 使用 ajax 动态获取数据
         api.fetchMovies(function (d) {
             d = JSON.parse(d)
             renderChart(d)
         })
     } else {
-        // 直接使用 JSON 数据 不从后台获取
         let d = movieJSON()
         renderChart(d)
     }
@@ -248,8 +243,6 @@ const __main = function() {
     fetchMovies()
 }
 
-// $(document).ready() 这个东西是 jQuery 的回调函数
-// 是页面内容(只包括元素, 不包括元素引用的图片)载入完毕之后的回调事件
 $(document).ready(function() {
     __main()
 })
