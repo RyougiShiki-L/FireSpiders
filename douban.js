@@ -3,14 +3,10 @@ const fs = require('fs')
 const request = require('syncrequest')
 const cheerio = require('cheerio')
 
-// 定义一个简版的 log 函数
 const log = console.log.bind(console)
 
-
-// 定义一部电影的格式
 class Movie {
     constructor() {
-        // 分别是电影名/评分/引言/排名/封面图片链接
         this.name = ''
         this.score = 0
         this.quote = ''
@@ -58,7 +54,7 @@ const movieFromDiv = (div) => {
     return movie
 }
 
-// 如果文件目录不存在,就创建目录
+
 const ensurePath = (path) => {
     if (!fs.existsSync(path)) {
         fs.mkdirSync(path)
